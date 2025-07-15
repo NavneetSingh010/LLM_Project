@@ -48,7 +48,7 @@ def scrape_user_data(username, limit=5):
                 "url": f"https://www.reddit.com{comment.permalink}"
             })
     except Exception as e:
-        print("❌ Error scraping user:", e)
+        print("Error scraping user:", e)
     return posts, comments
 
 
@@ -95,7 +95,7 @@ def save_persona(text, username):
     filename = f"user_persona_{username}.txt"
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(text)
-    print(f"✅ Persona saved to {filename}")
+    print(f"Persona saved to {filename}")
 
 # Main execution
 if __name__ == "__main__":
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     username = extract_username(profile_url)
 
     if not username:
-        print("❌ Invalid Reddit URL.")
+        print("Invalid Reddit URL.")
         exit()
 
     posts, comments = scrape_user_data(username)
