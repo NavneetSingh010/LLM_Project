@@ -1,0 +1,18 @@
+ **User Persona:**
+
+Name: Ankush Sharma (Invented)
+Age Range: Late 20s to early 30s (Based on activity and maturity of posts)
+Interests: Cricket (specifically Test matches and updates on players)
+Personality Traits: Persistent, Detail-oriented, Adheres to rules, Critical thinker
+Occupation: Possibly a software developer or data analyst (Based on the ability to understand and critique Reddit rules)
+Writing Style: Straightforward, concise, and argumentative when necessary
+Typical Subreddit Activity: r/Cricket
+
+**Supporting Evidence:**
+
+- Shows a strong interest in cricket, as evident from the multiple posts and comments about cricket matches, players, and rule-breaking posts in the r/Cricket subreddit (posts 1-7).
+- Demonstrates a critical and detail-oriented mindset by questioning the rules and reasoning behind post removals (comment 1).
+- Shows persistence by replying to the same thread multiple times (comments 2 and 3).
+- Uses a straightforward and concise writing style (comments 4, 5, and 6).
+- Shows a tendency to be argumentative when necessary, as demonstrated by the tone of some comments (comments 1, 2, and 3).
+- Mentions ICC.TV, suggesting a potential interest in streaming cricket matches (comment 7).
