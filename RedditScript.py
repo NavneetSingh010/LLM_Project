@@ -4,19 +4,19 @@ import re
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-HF_TOKEN = os.getenv("HF_API_TOKEN")  # Your Huggingface API token here
 
-# Initialize client for chat (conversational) model
+load_dotenv()
+HF_TOKEN = os.getenv("HF_API_TOKEN")  
+
+
 client = InferenceClient(token=HF_TOKEN)
 
-# Setup Reddit API credentials
+
 REDDIT_CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
 REDDIT_CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
 REDDIT_USER_AGENT = os.getenv("REDDIT_USER_AGENT", "PersonaScraper by /u/Potential-Win-4655")
 
-# Create Reddit instance
+
 def reddit_instance():
     return praw.Reddit(
         client_id=REDDIT_CLIENT_ID,
@@ -24,12 +24,12 @@ def reddit_instance():
         user_agent=REDDIT_USER_AGENT
     )
 
-# Extract username from Reddit URL
+
 def extract_username(url):
     match = re.search(r'reddit\.com/user/([A-Za-z0-9_-]+)/?', url)
     return match.group(1) if match else None
 
-# Scrape Reddit user data (posts and comments)
+
 def scrape_user_data(username, limit=5):
     reddit = reddit_instance()
     user = reddit.redditor(username)
@@ -51,7 +51,7 @@ def scrape_user_data(username, limit=5):
         print("❌ Error scraping user:", e)
     return posts, comments
 
-# Generate persona using Huggingface chat method
+
 def generate_persona(text_posts, text_comments, username):
     prompt = f"""You are a persona-building assistant.
 Use the following Reddit posts and comments by u/{username} to create a detailed user persona.
@@ -73,7 +73,6 @@ Cite specific posts/comments under each characteristic.
 {text_comments}
 """
 
-    # Conversational input expects messages list
     messages = [
         {"role": "system", "content": "You are a helpful assistant who builds detailed user personas from social media data."},
         {"role": "user", "content": prompt}
@@ -81,14 +80,13 @@ Cite specific posts/comments under each characteristic.
 
 
     response = client.chat.completions.create(
-    model="mistralai/Mistral-7B-Instruct-v0.3",  # specify model here or rely on default set in client
+    model="mistralai/Mistral-7B-Instruct-v0.3",  
     messages=messages,
     max_tokens=500,
     temperature=0.7,
     
  )
 
-    # Extract the assistant's message text from response
     return response.choices[0].message.content
 
 
